@@ -22,7 +22,6 @@ public class NonnaList {
     }
 
     public void add(Object elem){
-        //check if array length is not OutOfBound
         if(size() > arr.length - 1) {
             extendedSize *= 2;
             tempArr = new Object[arr.length];
@@ -62,6 +61,28 @@ public class NonnaList {
 
     public int size(){
         return size;
+    }
+
+    public void clear(){
+        arr = null;
+    }
+
+    public Object get(int index){
+        if(index > arr.length -1 || index < 0 || arr[index]== null){
+            throw new NoSuchElementException("Element with provided index does not exist in the list. Index:" + index);
+        }else {
+            return arr[index];
+        }
+    }
+
+    public void removeAll(NonnaList list){
+        for (int i = list.size - 1; i >= 0; i--){
+            for(int k = this.size; k >=0; k--){
+                 if(list.get(i).equals(arr[k])){
+                     this.remove(k);
+                 }
+            }
+        }
     }
 
     @Override
