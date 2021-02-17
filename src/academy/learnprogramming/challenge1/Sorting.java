@@ -9,11 +9,14 @@ public class Sorting {
         int[] arr = {2,3,4,5,3,4,2,4,6,8,-6,-3,45,-4,234,24,36,24,7,8};
         int[] arr2 = {2,3,4,5,3,4,2,4,6,8,-6,-3,45,-4,234,24,36,24,7,8};
         int[] arr3 = {2,3,4,5,3,4,2,4,6,8,-6,-3,45,-4,234,24,36,24,7,8,5};
+        int[] arr4 = {2,3,4,5,3,4,2,4,6,8,-6,-3,45,-4,234,24,36,24,7,8,5};
         Arrays.stream(bubbleSort(arr)).forEach(elem -> System.out.print(elem + ","));
         System.out.println();
         Arrays.stream(selectionSort(arr2)).forEach(elem -> System.out.print(elem + ","));
         System.out.println();
         Arrays.stream(insertionSort(arr3)).forEach(elem -> System.out.print(elem + ","));
+        System.out.println();
+       // Arrays.stream(quickSort(arr3)).forEach(elem -> System.out.print(elem + ","));
     }
 
     //stable On2 worst and best - quadratic time complexity
