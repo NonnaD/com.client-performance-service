@@ -12,6 +12,12 @@ public class MergeSort {
        System.out.println(Arrays.toString(arr) + " is Sorted");
     }
 
+    /** Divide and conquer algorithm
+     - Ologn (logarithmic) time complexity
+     - Not inplace algorithm
+     -  Logically divide an array
+     Disadvantage:
+     - require to crate bunch of temporary arrays..memory consuming */
     public static void mergeSort(int[] arr, int start, int end){
         if (end - start < 2){
             return;
