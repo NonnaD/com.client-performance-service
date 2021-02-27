@@ -8,7 +8,7 @@ public class StringExec {
         NonnasString non = new NonnasString(new char[]{'n', 'o', 'n', 'n', 'a'});
         NonnasString non1 = new NonnasString(new char[]{'N', 'o', 'n', 'n', 'a'});
         NonnasString non2 = new NonnasString(new char[]{'n', 'o', 'f', 'n', 'a'});
-        NonnasString non3 = new NonnasString(new char[]{'n', 'o', 'n'});
+        NonnasString non3 = new NonnasString(new char[]{'n', 'a'});
 
         System.out.println("non.isEmpty() " + non.isEmpty());
         System.out.println("non.length() " + non.length());
@@ -18,6 +18,9 @@ public class StringExec {
         System.out.println("non.indexOf(non2) " + non.indexOf(non3));
         System.out.println("non.lastIndexOf(non3) " + non.lastIndexOf(non3));
         System.out.println("non.contains(non3) " + non.contains(non3));
+        System.out.println("non.startsWith(non3) " + non.startsWith(non3));
+        System.out.println("non.endsWith(non3) " + non.endsWith(non3));
+
 
         System.out.println(non);
 

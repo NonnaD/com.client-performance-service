@@ -82,52 +82,6 @@ public class NonnasString {
     }
 
     /**
-     * Finds and returns index of first occurrence of first element
-     * for provided NonnasString object
-     * @param nstring
-     */
-    public int indexOf(NonnasString nstring){
-        if(nstring == null || nstring.length < 1) return -1;
-        for (int i = 0; i < this.length; i++){
-            if(value[i] == nstring.value[0]){
-                return i;
-            };
-        }
-        return -1;
-    }
-
-    /**
-     * Finds and returns index of last occurrence of first element
-     * for provided NonnasString object
-     * @param nstring
-     */
-    public int lastIndexOf(NonnasString nstring){
-        if(nstring == null || nstring.length < 1) return -1;
-        for (int i = this.length-1; i > 0; i--){
-            if(value[i] == nstring.value[0]){
-                return i;
-            };
-        }
-        return -1;
-    }
-
-    /**
-     * Check if this object contains provided object
-     * For now we just check the first occurrence
-     * But what if sequence present at second occurrence
-     * TODO: Fix: the corner case
-     * @param nstring
-     */
-    public boolean contains(NonnasString nstring){
-        int firstChar = this.indexOf(nstring);
-        for(int i = firstChar; i < nstring.length; i++){
-            assert this.value != null;
-            if(this.value[i] != nstring.value[i]) return false;
-        }
-        return true;
-    }
-
-    /**
      * This function will print all char's from value array
      * So it will look like string but both of us know it's not
      */
