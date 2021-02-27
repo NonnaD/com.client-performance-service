@@ -1,4 +1,4 @@
-package academy.learnprogramming.challenge1.problems;
+package com.my.interview.problems;
 
 import java.util.Arrays;
 

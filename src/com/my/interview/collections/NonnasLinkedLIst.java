@@ -1,4 +1,4 @@
-package academy.learnprogramming.challenge1;
+package com.my.interview.collections;
 
 public class NonnasLinkedLIst<E> {
     private int size = 0;

@@ -1,4 +1,4 @@
-package academy.learnprogramming.challenge1.recursion;
+package com.my.interview.recursion;
 
 import java.util.Arrays;
 

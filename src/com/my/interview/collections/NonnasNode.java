@@ -1,4 +1,4 @@
-package academy.learnprogramming.challenge1;
+package com.my.interview.collections;
 
 public class NonnasNode<E> {
     private E element;

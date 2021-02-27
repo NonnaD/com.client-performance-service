@@ -1,4 +1,4 @@
-package academy.learnprogramming.challenge1;
+package com.my.interview.collections;
 
 import java.util.HashSet;
 import java.util.Set;

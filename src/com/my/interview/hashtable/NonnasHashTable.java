@@ -1,4 +1,4 @@
-package academy.learnprogramming.challenge1.hashtable;
+package com.my.interview.hashtable;
 
 import java.util.Hashtable;
 

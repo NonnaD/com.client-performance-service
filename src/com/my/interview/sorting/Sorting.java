@@ -1,4 +1,4 @@
-package academy.learnprogramming.challenge1.sorting;
+package com.my.interview.sorting;
 
 import java.util.Arrays;
 

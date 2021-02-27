@@ -1,4 +1,4 @@
-package academy.learnprogramming.challenge1;
+package com.my.interview.collections;
 
 import java.lang.reflect.Array;
 import java.util.*;
