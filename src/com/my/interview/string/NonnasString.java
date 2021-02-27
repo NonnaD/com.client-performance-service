@@ -52,6 +52,36 @@ public class NonnasString {
     }
 
     /**
+     * Compares given NonnaString object with current object
+     * Returns true if all chars are equals
+     */
+    public static boolean equals(NonnasString nstring, NonnasString nstring2){
+        if (nstring.length() != nstring2.length) return false;
+        for(int i = nstring.length - 1; i > 0; i--){
+            if (nstring.value[i]!= nstring2.value[i]) return false;
+        }
+        return true;
+    }
+
+    /**
+     * Compares given NonnaString object with current object
+     * Returns true if all chars are equals - ignores case
+     */
+    public boolean equalsIgnoreCase(NonnasString nstring){
+        NonnasString thisObject;
+        if (nstring.length() != value.length) return false;
+        char[] thisValue = new char[this.length];
+        for(int i = 0; i < this.length; i++){
+            //I know using Character methods is not a good idea
+            //but i'ts Friday evening and I just want to finish and watch my Netflix show
+            thisValue[i] = Character.toLowerCase(value[i]);
+            nstring.value[i] = Character.toLowerCase(nstring.value[i]);
+        }
+        thisObject = new NonnasString(thisValue);
+        return equals(thisObject, nstring);
+    }
+
+    /**
      * This function will print all char's from value array
      * So it will look like string but both of us know it's not
      */
