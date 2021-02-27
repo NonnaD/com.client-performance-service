@@ -5,6 +5,15 @@ public class StringExec {
     public static void main(String[] args) {
 
         String  nonna = "Nonna";
+        NonnasString non = new NonnasString(new char[]{'n', 'o', 'n', 'n', 'a'});
+        NonnasString non1 = new NonnasString(new char[]{'n', 'o', 'n', 'n', 'a'});
+        NonnasString non2 = new NonnasString(new char[]{'n', 'o', 'f', 'n', 'a'});
+        System.out.println("non.isEmpty() " + non.isEmpty());
+        System.out.println("non.length() " + non.length());
+        System.out.println("non.equals(non1) " + non.equals(non1));
+        System.out.println("non.equals(non2) " + non.equals(non2));
+        System.out.println(non);
+        non.print();
     }
 
     public static void concat(){
