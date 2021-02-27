@@ -8,11 +8,17 @@ public class StringExec {
         NonnasString non = new NonnasString(new char[]{'n', 'o', 'n', 'n', 'a'});
         NonnasString non1 = new NonnasString(new char[]{'N', 'o', 'n', 'n', 'a'});
         NonnasString non2 = new NonnasString(new char[]{'n', 'o', 'f', 'n', 'a'});
+        NonnasString non3 = new NonnasString(new char[]{'n', 'o', 'n'});
+
         System.out.println("non.isEmpty() " + non.isEmpty());
         System.out.println("non.length() " + non.length());
         System.out.println("non.equals(non1) " + non.equals(non1));
         System.out.println("non.equals(non2) " + non.equals(non2));
-        System.out.println("non.equalsIgnoreCase(non2) " + non.equalsIgnoreCase(non1));
+        System.out.println("non.equalsIgnoreCase(non1) " + non.equalsIgnoreCase(non1));
+        System.out.println("non.indexOf(non2) " + non.indexOf(non3));
+        System.out.println("non.lastIndexOf(non3) " + non.lastIndexOf(non3));
+        System.out.println("non.contains(non3) " + non.contains(non3));
+
         System.out.println(non);
 
     }
