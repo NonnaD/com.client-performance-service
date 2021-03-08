@@ -12,6 +12,12 @@ import java.util.List;
  */
 public class AppJava7 {
     public static void main(String[] args) {
+
+        String a = "A";
+        String b  = "B";
+        String c = "C";
+        System.out.println(a.compareTo(b));
+        System.out.println(b.compareTo(c));
         List<Patient> pats = Arrays.asList(
                 new Patient(4, 77, "Delma Kors", "Athem"),
                 new Patient(1, 88, "Aaron Will", "Cigna"),

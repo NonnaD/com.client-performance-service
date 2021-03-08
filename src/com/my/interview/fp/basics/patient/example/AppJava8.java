@@ -17,26 +17,42 @@ public class AppJava8 {
                 new Patient(1, 88, "Aaron Will", "Cigna"),
                 new Patient(3, 109, "Crone Coul", "Aethna"),
                 new Patient(2, 99, "Blake Abuela", "Kaiser"),
-                new Patient(3, 109, "Crone Bruno", "Aethna")
-
+                new Patient(3, 106, "Drone Bruno", "Aethna"),
+                new Patient(5, 98, "Krone Bruno", "Aethna"),
+                new Patient(6, 79, "Arone Bruno", "Aethna"),
+                new Patient(7, 89, "Prone Bruno", "Aethna")
         );
 
         //1.Sort by Name
-      //  mySort(pats, (pat1, pat2) -> {pat1.getFullName().compareTo(pat2.getFullName());});
+        sortMyList(pats, (pat1, pat2) -> {
+            return pat1.getFullName().compareTo(pat2.getFullName());
+        });
 
         //3.Create method which prints patients with provided condition
         printIf(pats, pat -> pat.getInsurance().equals("Aethna"));
 
-    }
-
-    //I will use insertion sort here, I know it's not the best choice, but I'm tooo lazy
-    private static void mySort(List<Patient> pats, Comparator8 comparator8){
-        //TODO
+        sortMyList(pats, (pat1, pat2)->{ return pat1.getFullName().compareTo(pat2.getFullName());});
 
     }
-    private static void printIf(List<Patient> pats, Condition condition){
+
+    //I will use merge sort here
+    private static void sortMyList(List<Patient> pats, Comparator8<Patient> comparator8){
+        //1. Convert List to array of Patient[] object
+        Patient[] patients = pats.toArray(new Patient[0]);
+
+        //2. Call merge sort
+        MergeSort.sort(patients, 0, patients.length, comparator8);
+        for (Patient pa:patients) {
+            System.out.println(pa);
+        }
+    }
+
+
+
+    private static void printIf(List<Patient> pats, Condition8 condition8){
+        System.out.println("The following patients satisfy condition");
         for (Patient pat: pats){
-            if(condition.test(pat)){
+            if(condition8.test(pat)){
                 System.out.println(pat);
             }
         }
@@ -44,7 +60,7 @@ public class AppJava8 {
 }
 
 interface Condition8{
-    //by default interface method declarations are "public" and "abstract"
+    //by default interface method are "public" and "abstract"
     //no need to explicitly add keywords
     public abstract boolean test(Patient pat);
 }
