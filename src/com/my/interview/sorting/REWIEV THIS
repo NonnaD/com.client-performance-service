@@ -1,0 +1,8 @@
+Merge sort
+when merge arrays make sure (m>=start)
+
+Insertion sort
+make sure to save ourElement not just firstUnsorted index
+
+Quick sort
+make sure pivot equals arr[start] but not arr[0]

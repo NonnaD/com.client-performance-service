@@ -16,23 +16,26 @@ public class QuickSortExam {
 
         int pivot = partition(arr, start, end);
         quickSort(arr, start, pivot);
-        quickSort(arr, pivot + 1, end);
+        quickSort(arr, pivot +1, end);
+
     }
 
     private static int partition(int[] arr, int start, int end){
-       int pivot = arr[start];
-       int i = start;
-       int j = end;
+        //make sure pivot equals arr[start] but not arr[0]
+        int pivot = arr[start];
+        int i = start;
+        int j = end;
 
-       while (i < j){
-           while (i < j && arr[--j] >= pivot);
-           if(i < j) arr[i] = arr[j];
+        while (i < j){
+            while (i < j && arr[--j] > pivot);
+            if(i<j) arr[i] = arr[j];
 
-           while (i < j && arr[++i] <= pivot);
-           if(i < j) arr[j] = arr[i];
-       }
-       //this is REALLY IMPORTANT
+            while (i < j && arr[++i] < pivot);
+            if(i < j) arr[j] = arr[i];
+        }
+
         arr[j] = pivot;
-       return j;
+        return j;
+
     }
 }
