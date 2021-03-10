@@ -1,5 +1,9 @@
 package com.my.interview.fp.basics.patient.example;
 
+/**
+ * This merge sort used for AppJava8
+ * With functional interface Comparator8
+ */
 public class MergeSort {
     static void sort(Patient[] arr, int start, int end, Comparator8<Patient> comparator8){
 

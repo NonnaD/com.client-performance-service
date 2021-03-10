@@ -1,15 +1,10 @@
 package com.my.interview.fp.basics.patient.example;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
-import java.util.function.Function;
 
-/**
- * @author Nonna Dzhabieva
- * Hi if you read this...you already know the answer ;-)
- * @question src/theQuestion
- */
-public class AppJava8 {
+public class StandartFunctionalInterfaces {
     public static void main(String[] args) {
         List<Patient> pats = Arrays.asList(
                 new Patient(4, 77, "Delma Kors", "Athem"),
@@ -22,33 +17,31 @@ public class AppJava8 {
                 new Patient(7, 89, "Prone Bruno", "Aethna")
         );
 
-        //1.Sort by Name
-        sortMyList(pats, (pat1, pat2) -> {
-            return pat1.getFullName().compareTo(pat2.getFullName()); });
+//        //1.Sort by Name
+//        sortMyList(pats, (pat1, pat2) -> {
+//            return pat1.getFullName().compareTo(pat2.getFullName()); });
 
         //2. Sort by Insurance
         sortMyList(pats, (pat1, pat2)->{return pat1.getInsurance().compareTo(pat2.getInsurance());});
 
-        //3.Create method which prints patients with provided condition
-        printIf(pats, pat -> pat.getInsurance().equals("Aethna"));
-
-        //4. Print all users
-        printIf(pats, patient -> true);
+//        //3.Create method which prints patients with provided condition
+//        printIf(pats, pat -> pat.getInsurance().equals("Aethna"));
+//
+//        //4. Print all users
+//        printIf(pats, patient -> true);
     }
 
     //I will use merge sort here
-    private static void sortMyList(List<Patient> pats, Comparator8<Patient> comparator8){
+    private static void sortMyList(List<Patient> pats, Comparator<Patient> comparator){
         //1. Convert List to array of Patient[] object
         Patient[] patients = pats.toArray(new Patient[0]);
 
         //2. Call merge sort
-        MergeSort.sort(patients, 0, patients.length, comparator8);
+        QuickSort.quickSort(patients, 0, patients.length, comparator);
         for (Patient pa:patients) {
             System.out.println(pa);
         }
     }
-
-
 
     private static void printIf(List<Patient> pats, Condition8 condition8){
         System.out.println("The following patients satisfy condition");
@@ -60,12 +53,3 @@ public class AppJava8 {
     }
 }
 
-interface Condition8{
-    //by default interface method are "public" and "abstract"
-    //no need to explicitly add keywords
-    public abstract boolean test(Patient pat);
-}
-@FunctionalInterface
-interface Comparator8<Patient> {
-    int compare(Patient o1, Patient o2);
-}
