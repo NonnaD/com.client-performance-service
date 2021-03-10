@@ -14,7 +14,6 @@ public class MergeSort {
     private static void merge(Patient[] arr, int start, int mid, int end, Comparator8<Patient> comparator8){
         Patient[] temp = new Patient[end - start];
         int t = temp.length -1;
-        int s = start;
         int m = mid - 1;
         int e = end -1;
 
