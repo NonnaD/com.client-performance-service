@@ -3,6 +3,8 @@ package com.my.interview.fp.basics.patient.example;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class StandartFunctionalInterfaces {
     public static void main(String[] args) {
@@ -21,33 +23,43 @@ public class StandartFunctionalInterfaces {
 //        sortMyList(pats, (pat1, pat2) -> {
 //            return pat1.getFullName().compareTo(pat2.getFullName()); });
 
-        //2. Sort by Insurance
-        sortMyList(pats, (pat1, pat2)->{return pat1.getInsurance().compareTo(pat2.getInsurance());});
+//        //2. Sort by Insurance
+//        sortMyList(pats, (pat1, pat2)->{return pat1.getInsurance().compareTo(pat2.getInsurance());});
 
-//        //3.Create method which prints patients with provided condition
-//        printIf(pats, pat -> pat.getInsurance().equals("Aethna"));
-//
-//        //4. Print all users
-//        printIf(pats, patient -> true);
+        //3.Create method which prints patients with provided condition
+        printIf(pats, pat -> pat.getInsurance().equals("Aethna"), System.out::println);
+
+        //4. Print all users
+        //Since I use a consumer interface I have to implement print
+        printIf(pats, patient -> true,
+                patient -> System.out.println(patient));
     }
 
     //I will use merge sort here
-    private static void sortMyList(List<Patient> pats, Comparator<Patient> comparator){
+    private static void sortMyList(List<Patient> pats, Comparator<Patient> comparator) {
         //1. Convert List to array of Patient[] object
         Patient[] patients = pats.toArray(new Patient[0]);
 
         //2. Call merge sort
         QuickSort.quickSort(patients, 0, patients.length, comparator);
-        for (Patient pa:patients) {
+        for (Patient pa : patients) {
             System.out.println(pa);
         }
     }
 
-    private static void printIf(List<Patient> pats, Condition8 condition8){
+    /**
+     * Instead of custom functional interface I can use:
+     * Predicate FI from java.utils.function
+     * Represents a predicate (boolean-valued function) of one argument
+     * It takes an Object an returns the boolean value
+     * To print the value I can use Consumer FI which takes object as a param
+     * But does not returns any value
+     */
+    private static void printIf(List<Patient> pats, Predicate<Patient> predicate, Consumer<Patient> consumer) {
         System.out.println("The following patients satisfy condition");
-        for (Patient pat: pats){
-            if(condition8.test(pat)){
-                System.out.println(pat);
+        for (Patient pat : pats) {
+            if (predicate.test(pat)) {
+                consumer.accept(pat);
             }
         }
     }
