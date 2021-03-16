@@ -19,11 +19,11 @@ public class AppJava7 {
         System.out.println(a.compareTo(b));
         System.out.println(b.compareTo(c));
         List<Patient> pats = Arrays.asList(
-                new Patient(4, 77, "Delma Kors", "Athem"),
-                new Patient(1, 88, "Aaron Will", "Cigna"),
-                new Patient(3, 109, "Crone Coul", "Aethna"),
-                new Patient(2, 99, "Blake Abuela", "Kaiser"),
-                new Patient(3, 109, "Crone Bruno", "Aethna")
+                new Patient(4, 77, "Delma Kors", "Athem", "active"),
+                new Patient(1, 88, "Aaron Will", "Cigna", "active"),
+                new Patient(3, 109, "Crone Coul", "Aethna", "active"),
+                new Patient(2, 99, "Blake Abuela", "Kaiser", "active"),
+                new Patient(3, 109, "Crone Bruno", "Aethna", "active")
 
         );
 

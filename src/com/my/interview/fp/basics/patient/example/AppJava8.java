@@ -12,14 +12,14 @@ import java.util.function.Function;
 public class AppJava8 {
     public static void main(String[] args) {
         List<Patient> pats = Arrays.asList(
-                new Patient(4, 77, "Delma Kors", "Athem"),
-                new Patient(1, 88, "Aaron Will", "Cigna"),
-                new Patient(3, 109, "Crone Coul", "Aethna"),
-                new Patient(2, 99, "Blake Abuela", "Kaiser"),
-                new Patient(3, 106, "Drone Bruno", "Aethna"),
-                new Patient(5, 98, "Krone Bruno", "Aethna"),
-                new Patient(6, 79, "Arone Bruno", "Aethna"),
-                new Patient(7, 89, "Prone Bruno", "Aethna")
+                new Patient(4, 77, "Delma Kors", "Athem", "active"),
+                new Patient(1, 88, "Aaron Will", "Cigna", "active"),
+                new Patient(3, 109, "Crone Coul", "Aethna", "active"),
+                new Patient(2, 99, "Blake Abuela", "Kaiser", "active"),
+                new Patient(3, 106, "Drone Bruno", "Aethna", "active"),
+                new Patient(5, 98, "Krone Bruno", "Aethna", "active"),
+                new Patient(6, 79, "Arone Bruno", "Aethna", "active"),
+                new Patient(7, 89, "Prone Bruno", "Aethna", "active")
         );
 
         //1.Sort by Name
