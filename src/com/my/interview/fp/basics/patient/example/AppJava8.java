@@ -1,9 +1,8 @@
 package com.my.interview.fp.basics.patient.example;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * @author Nonna Dzhabieva
@@ -25,14 +24,16 @@ public class AppJava8 {
 
         //1.Sort by Name
         sortMyList(pats, (pat1, pat2) -> {
-            return pat1.getFullName().compareTo(pat2.getFullName());
-        });
+            return pat1.getFullName().compareTo(pat2.getFullName()); });
+
+        //2. Sort by Insurance
+        sortMyList(pats, (pat1, pat2)->{return pat1.getInsurance().compareTo(pat2.getInsurance());});
 
         //3.Create method which prints patients with provided condition
         printIf(pats, pat -> pat.getInsurance().equals("Aethna"));
 
-        sortMyList(pats, (pat1, pat2)->{ return pat1.getFullName().compareTo(pat2.getFullName());});
-
+        //4. Print all users
+        printIf(pats, patient -> true);
     }
 
     //I will use merge sort here
@@ -64,7 +65,7 @@ interface Condition8{
     //no need to explicitly add keywords
     public abstract boolean test(Patient pat);
 }
-
+@FunctionalInterface
 interface Comparator8<Patient> {
     int compare(Patient o1, Patient o2);
 }
