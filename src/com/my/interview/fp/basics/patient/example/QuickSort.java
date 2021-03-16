@@ -27,10 +27,10 @@ public class QuickSort{
             //this doesn't work - we need an array for compilation and sorting
             // we can try to use here Map<Patient, int>
             //where int is result of compareTo() function
-            while (i < j && comparator.compare(arr[i], arr[j--]) > 0 );
+            while (i < j && comparator.compare(arr[i], arr[j]) > comparator.compare(arr[i], arr[j--]));
             if(i < j) arr[i] = arr[j];
 
-            while (i < j && comparator.compare(arr[i++], arr[j]) < 0);
+            while (i < j && comparator.compare(arr[i], arr[j]) > comparator.compare(arr[i++], arr[j]));
             if(i < j) arr[j] = arr[i];
         }
 

@@ -12,7 +12,7 @@ public class Sorting {
         int[] arr4 = {2,3,4,5,3,4,2,4,6,8,-6,-3,45,-4,234,24,36,24,7,8,5};
         //  Arrays.stream(bubbleSort(arr)).forEach(elem -> System.out.print(elem + ","));
         System.out.println();
-        //  Arrays.stream(selectionSort(arr2)).forEach(elem -> System.out.print(elem + ","));
+         Arrays.stream(selectionSort(arr2)).forEach(elem -> System.out.print(elem + ","));
         System.out.println();
         Arrays.stream(insertionSort(arr3)).forEach(elem -> System.out.print(elem + ","));
         System.out.println();
@@ -34,15 +34,17 @@ public class Sorting {
     //Selection Sort is not stable because it swaps non-adjacent elements.
     //On2 quadratic best and worst case
     public static int[] selectionSort(int[] arr){
-        for(int lastUnsorted = arr.length -1; lastUnsorted>0; lastUnsorted--){
-            int maxElem = 0;
-            int k;
-            for(k = 1; k < lastUnsorted; k++){
-                if(arr[k] > arr[maxElem]){
-                    maxElem = k;
+        for (int lastUnsorted = arr.length -1; lastUnsorted > 0; lastUnsorted--){
+            int max = 0;
+            int temp;
+            for (int k = 1; k <= lastUnsorted; k++){
+                if(arr[k] > arr[max]){
+                    max = k;
                 }
             }
-            swapElements(arr, maxElem, k);
+            temp = arr[lastUnsorted];
+            arr[lastUnsorted] = arr[max];
+            arr[max] = temp;
         }
         return arr;
     }

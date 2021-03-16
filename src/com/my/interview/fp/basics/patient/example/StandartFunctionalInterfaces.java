@@ -23,8 +23,8 @@ public class StandartFunctionalInterfaces {
 //        sortMyList(pats, (pat1, pat2) -> {
 //            return pat1.getFullName().compareTo(pat2.getFullName()); });
 
-//        //2. Sort by Insurance
-//        sortMyList(pats, (pat1, pat2)->{return pat1.getInsurance().compareTo(pat2.getInsurance());});
+        //2. Sort by Insurance
+        sortMyList(pats, Comparator.comparing(Patient::getInsurance));
 
         //3.Create method which prints patients with provided condition
         printIf(pats, pat -> pat.getInsurance().equals("Aethna"), System.out::println);
