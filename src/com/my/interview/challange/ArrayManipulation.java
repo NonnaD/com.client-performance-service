@@ -9,12 +9,47 @@ public class ArrayManipulation {
 
         //2. Find average of subarray of given size
         Arrays.toString(averageOfSubarrayOfSizeK(new int[]{1,2,3,4,6,5,3,4,5,3,4,3,4}, 5));
-        Arrays.stream(averageOfSubarrayOfSizeKSlidingWindow(new int[]{1,2,3,4,6,5,3,4,5,3,4,3,4}, 5)).forEach(a -> System.out.print(a + ", "));
+        Arrays.stream(averageOfSubarrayOfSizeKSlidingWindow(new int[]{1,2,3,4,6,5,3,4,5,3,4,3,4}, 5));//.forEach(a -> System.out.print(a + ", "));
 
         //3. Find maximum sum of subarray of given size - sliding approach
         //System.out.println((maxOfSubarrayOfSizeK(new int[]{1,2,3,4,6,5,3,4,5,3,4,3,4}, 4)));
         //System.out.println((maxOfSubarrayOfSizeKSlidingApproach(new int[]{1,2,3,4,6,5,3,4,5,3,4,3,4}, 4)));
 
+        //4.find the length of the smallest contiguous subarray whose sum is greater than or equal to ‘S’.
+       // Arrays.stream(smallestSubarraySum(new int[]{2, 1, 5, 2, 3, 2}, 8)).forEach(System.out::println);
+
+        System.out.println(smallestSubarraySum(new int[]{1,2,3,4,1,2,3,5}, 8));
+    }
+
+    /**
+     * Given an array of positive numbers and a positive number ‘S’
+     * find the length of the smallest contiguous subarray whose sum is greater than or equal to ‘S’.
+     * Return 0 if no such subarray exists.
+     *
+     * Input: [2, 1, 5, 2, 3, 5, 2], s=7
+     * Output: 2
+     * Explanation: The smallest subarray with a sum greater than or equal to '7' is [5, 2].
+     */
+    public static int smallestSubarraySum(int[] arr, int s){
+        int minArrayLength = arr.length;
+        int start = 0;
+        int sum = 0;
+        for (int i = 0; i < arr.length ; i++){
+            if(sum < s) sum+=arr[i];
+            /**
+             * once we found array with sum > s we should subtract from start to see how small it can be
+             * ex: s = 8 [2,2,1,1,7] this is > s but if we remove last 7 it will be < s
+             * we need to check if we have elements at the start that can be removed and still satisfy the result
+             * after removing first elements we left with array [1,7] which still works fo us
+             * That's why I used while here instead of if
+             * */
+            while(sum >= s) {
+                minArrayLength = Math.min(minArrayLength, i - start + 1);
+                sum -= arr[start];
+                start++;
+            }
+        }
+        return minArrayLength;
     }
 
     /**
